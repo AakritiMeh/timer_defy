@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './Countdown.css';
 
+
 const COUNTDOWN_DURATION_HOURS = 36;
 
 const CountdownTimer = () => {
@@ -35,6 +36,7 @@ const CountdownTimer = () => {
 
   return (
     <div className="countdown-container">
+     
       <div className="timer">{formatTime(timeInSeconds)}</div>
       <div className="controls">
         <div className='buttons'>

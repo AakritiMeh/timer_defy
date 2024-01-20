@@ -4,24 +4,22 @@
     text-align: center;
     height: 100vh;
     overflow-y: hidden;
-    background-color: black;
+    background-image: url("./cover.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+ 
     color:white;
 }
   
 .timer {
-    font-size: 28rem;
-    margin-bottom: 20px;
-    height:80vh;
+    font-size: 25rem;
+    padding-top:150px;
+    height:68.5vh;
     justify-content: center;
-    color:#ADFC69;
-    background-image: url("mainBG.jpeg");
-    object-fit: cover;
-    background-repeat: no-repeat;
+    color:#ADFC69;    
     width:100vw;
-    background-size: 100vw;
-    margin-top:100px;
-    background-color: rgb(27, 27, 27);
-
 }
   
 .controls {
@@ -43,19 +41,11 @@ button {
     border-radius: 10%;
 }
 
-label{
-    font-size: 1.2rem;
-    padding: 5px 10px;
-    cursor: pointer;
-    margin-right:100px;
-    margin-left:100px;
-    font-family: 'Times New Roman', Times, serif;
-}
-
 .buttons{
   display:flex;
   flex-direction: row;
-  margin-top:50px;
+  padding-bottom:170px;
+
   
 }
   
