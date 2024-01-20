@@ -1,5 +1,3 @@
-/* CountdownTimer.css */
-
 .countdown-container {
     text-align: center;
     height: 100vh;
@@ -7,10 +5,12 @@
     background-image: url("./cover.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
-
- 
+    background-position: center; 
     color:white;
+}
+
+.DAOwords{
+
 }
   
 .timer {
@@ -44,8 +44,6 @@ button {
 .buttons{
   display:flex;
   flex-direction: row;
-  padding-bottom:170px;
-
-  
+  padding-bottom:170px;  
 }
   
