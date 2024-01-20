@@ -8,11 +8,12 @@ const STORAGE_KEY = 'countdownTimerState';
 
 const CountdownTimer = () => {
   const storedTimerState = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
-    timeInSeconds: COUNTDOWN_DURATION_HOURS * 3600,
+    startTime: null,
+    elapsedTime: 0,
     timerRunning: false,
   };
 
-  const [timeInSeconds, setTimeInSeconds] = useState(storedTimerState.timeInSeconds);
+  const [elapsedTime, setElapsedTime] = useState(storedTimerState.elapsedTime);
   const [timerRunning, setTimerRunning] = useState(storedTimerState.timerRunning);
 
   useEffect(() => {
@@ -20,7 +21,7 @@ const CountdownTimer = () => {
 
     if (timerRunning) {
       interval = setInterval(() => {
-        setTimeInSeconds((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
+        setElapsedTime((prevElapsedTime) => prevElapsedTime + 1);
       }, 1000);
     }
 
@@ -28,32 +29,40 @@ const CountdownTimer = () => {
   }, [timerRunning]);
 
   useEffect(() => {
-    // Save timer state to localStorage
+  
     localStorage.setItem(
       STORAGE_KEY,
       JSON.stringify({
-        timeInSeconds,
+        startTime: storedTimerState.startTime,
+        elapsedTime,
         timerRunning,
       })
     );
-  }, [timeInSeconds, timerRunning]);
+  }, [elapsedTime, timerRunning,storedTimerState.startTime]);
 
   const handleStart = () => {
-    setTimerRunning(true);
+    if (!timerRunning) {
+      const now = Math.floor(Date.now() / 1000); // Current timestamp in seconds
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ startTime: now, elapsedTime, timerRunning: true }));
+      setTimerRunning(true);
+    }
   };
 
   const handlePause = () => {
-    setTimerRunning(false);
+    if (timerRunning) {
+      setTimerRunning(false);
+    }
   };
 
   const handleStop = () => {
     setTimerRunning(false);
-    setTimeInSeconds(COUNTDOWN_DURATION_HOURS * 3600);
+    setElapsedTime(0);
+    localStorage.removeItem(STORAGE_KEY);
   };
 
   return (
     <div className="countdown-container">
-      <div className="timer">{formatTime(timeInSeconds)}</div>
+      <div className="timer">{formatTime(COUNTDOWN_DURATION_HOURS * 3600 - elapsedTime)}</div>
       <div className="controls">
         <div className='buttons'>
           <button onClick={handleStart} disabled={timerRunning}>
