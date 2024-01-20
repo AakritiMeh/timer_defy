@@ -72,8 +72,8 @@ function Index() {
         initial="visible"
         animate={control}
       >
-        <div className="countdown-box mt-10">
-          <div className="countdown-tagline mb-4">made the timer countdown to defy grand finale:</div>
+        <div className="countdown-container">
+          <div className="countdown-tagline">made the timer countdown to defy grand finale:</div>
           <div className="counter">
             <div className="counter-day">
               <p className="counter-day-number">{timerHours}:</p>
