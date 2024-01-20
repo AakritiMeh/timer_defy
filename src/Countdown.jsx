@@ -63,7 +63,7 @@ const CountdownTimer = () => {
   return (
     <div className="countdown-container">
       <div className="timer">{formatTime(COUNTDOWN_DURATION_HOURS * 3600 - elapsedTime)}</div>
-      <div className="controls">
+     
         <div className='buttons'>
           <button onClick={handleStart} disabled={timerRunning}>
             Start Timer
@@ -71,11 +71,14 @@ const CountdownTimer = () => {
           <button onClick={handlePause} disabled={!timerRunning}>
             Pause Timer
           </button>
-          <button onClick={handleStop}>Stop Timer</button>
-        </div>
-      </div>
-      <img className="DAOwords" src={daowords} alt="dao"></img>
-    </div>
+          <button onClick={handleStop}>Stop Timer</button>          
+        </div>   
+        <div className='controls'>
+        <div className="DAOwords"><img src={daowords} alt="dao"></img></div>    
+        <div className='instagram'><a href="https://www.instagram.com/de.fy24/">@de.fy24</a></div>
+        </div> 
+      </div>      
+   
   );
 };
 
