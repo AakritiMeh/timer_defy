@@ -1,7 +1,7 @@
 // CountdownTimer.jsx
 import React, { useState, useEffect } from 'react';
 import './Countdown.css';
-import DAOgreyWording from "./DAOgreyWording.jpeg";
+import daowords from "./daowords.png";
 
 const COUNTDOWN_DURATION_HOURS = 36;
 const STORAGE_KEY = 'countdownTimerState';
@@ -65,7 +65,7 @@ const CountdownTimer = () => {
           <button onClick={handleStop}>Stop Timer</button>
         </div>
       </div>
-      <img className="DAOwords" src={DAOgreyWording} alt="dao"></img>
+      <img className="DAOwords" src={daowords} alt="dao"></img>
     </div>
   );
 };

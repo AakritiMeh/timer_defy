@@ -10,7 +10,11 @@
 }
 
 .DAOwords{
-
+  z-index: 1;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 20px;
 }
   
 .timer {
