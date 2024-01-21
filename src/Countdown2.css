@@ -19,16 +19,3 @@
   color:#ADFC69;    
   width:100vw;
 }
-
-.counter-milli {
-  font-size: 5rem;
-  padding-top: 335px;
-  padding-left: 10px;
-  color: #c6c4c5;
-  opacity: 70%;
-  width: 50px;
-}
-
-.counter-day-number{
-  padding: 0%;
-}
