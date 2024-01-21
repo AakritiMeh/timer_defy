@@ -8,3 +8,24 @@
   background-position: center; 
   color:white;
 }
+
+.timer {
+  font-size: 15rem;
+  height:68.5vh;
+  padding-top: 0px;
+  display: flex;
+  justify-content: center;
+  color:#ADFC69;    
+  width:100vw;
+}
+
+.counter-milli {
+  font-size: 5rem;
+  padding-top: 335px;
+  padding-left: 10px;
+  color: #c6c4c5;
+}
+
+.counter-day-number{
+  padding: 0%;
+}

@@ -17,6 +17,7 @@ function Index() {
   const [timerHours, setTimerHours] = useState(0);
   const [timerMinutes, setTimerMinutes] = useState(0);
   const [timerSeconds, setTimerSeconds] = useState(0);
+  const [timerMilli, setTimerMilli] = useState(0);
 
   const control = useAnimation();
   const [ref, inView] = useInView();
@@ -53,6 +54,10 @@ function Index() {
         .toString()
         .padStart(2, "0");
 
+      const milli = Math.floor((distance % (1000)) / (10))
+        .toString()
+        .padStart(2, "0");
+
       if (distance < 0) {
         clearInterval(interval.current);
       } else {
@@ -60,6 +65,7 @@ function Index() {
         setTimerHours(hours);
         setTimerMinutes(minutes);
         setTimerSeconds(seconds);
+        setTimerMilli(milli);
       }
     }, 1000);
   };
@@ -73,19 +79,18 @@ function Index() {
         animate={control}
       >
         <div className="countdown-container">
-          <div className="countdown-tagline">made the timer countdown to defy grand finale:</div>
-          <div className="counter">
+          <div className="timer">
             <div className="counter-day">
               <p className="counter-day-number">{timerHours}:</p>
-              <p className="counter-day-text">Hours</p>
             </div>
             <div className="counter-minute">
               <p className="counter-minute-number">{timerMinutes}:</p>
-              <p className="counter-minute-text">Minutes</p>
             </div>
             <div className="counter-seconds">
               <p className="counter-seconds-number">{timerSeconds}</p>
-              <p className="counter-seconds-text">Seconds</p>
+            </div>
+            <div className="counter-milli">
+              <p className="counter-milli-number">{timerMilli}</p>
             </div>
           </div>
         </div>
